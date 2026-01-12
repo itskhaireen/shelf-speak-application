@@ -1,0 +1,29 @@
+<div class="book-list">
+    <h2>Books!</h2>
+
+    <div *ngIf="loading">Books Loading...</div>
+    <div *ngIf="error && !loading" class="error">{{ error }}</div>
+
+    <table *ngIf="!loading && !error && books.length > 0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books">
+                <td>{{ book.id }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.genre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p *ngIf="!loading && !error && books.length === 0">
+        No books in the database. Add some in the H2 console or via the API.
+    </p>
+</div>

@@ -1,0 +1,39 @@
+# Root level ignores
+.DS_Store
+Thumbs.db
+*.log
+
+# Spring Boot / Maven
+bookreview-api/target/
+bookreview-api/.mvn/wrapper/maven-wrapper.jar
+bookreview-api/.apt_generated
+bookreview-api/.classpath
+bookreview-api/.factorypath
+bookreview-api/.project
+bookreview-api/.settings
+bookreview-api/.springBeans
+bookreview-api/.sts4-cache
+
+# Angular / Node
+bookreview-ui/node_modules/
+bookreview-ui/dist/
+bookreview-ui/tmp/
+bookreview-ui/out-tsc/
+bookreview-ui/.angular/cache/
+bookreview-ui/coverage/
+bookreview-ui/.sass-cache/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+
+# System files
+.DS_Store
+Thumbs.db
+
