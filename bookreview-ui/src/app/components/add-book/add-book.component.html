@@ -1,0 +1,51 @@
+<div class="add-book">
+    <h3>Add New Book</h3>
+
+    <div *ngIf="!isLoggedIn" class="warning">
+        <p>You need to login first to add Books!</p>
+        <p>Default credentials: admin / admin123</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" *ngIf="isLoggedIn">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input
+                type="text"
+                id="title"
+                [(ngModel)]="book.title"
+                name="title"
+                required
+                maxlength="100"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="author">Author</label>
+            <input 
+                type="text"
+                id="author"
+                [(ngModel)]="book.author"
+                required
+                maxlength="100"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="genre">Genre</label>
+            <input 
+                type="text"
+                id="genre"
+                [(ngModel)]="book.genre"
+                required
+                maxlength="50"
+            />
+        </div>
+
+        <button type="submit" [disabled]="!book.title || !book.author || !book.genre">
+            Add Book
+        </button>
+    </form>
+
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

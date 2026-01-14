@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BookService, Book } from '../../services/book.service';
+import { AuthService } from '../../services/auth.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css'
 })
@@ -14,7 +16,13 @@ export class BookListComponent implements OnInit {
   books: Book[] = [];
   loading = true;
   error: string | null = null;
-  constructor(private bookService: BookService) {}
+  isLoggedIn = false;
+  constructor(
+    private bookService: BookService,
+    private authService: AuthService
+  ) 
+  
+  { this.isLoggedIn = this.authService.isAuthenticated(); }
 
   ngOnInit(): void {
     this.bookService.getAllBooks().subscribe({

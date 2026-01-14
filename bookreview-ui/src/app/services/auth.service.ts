@@ -21,7 +21,7 @@ export class AuthService {
     constructor(private http: HttpClient) {}
 
     login(credentials: LoginRequest): Observable<LoginResponse> {
-        return this.http.post<LoginResponse>('${this.apiUrl}/login', credentials).pipe(
+        return this.http.post<LoginResponse>(`${this.apiUrl}/login`, credentials).pipe(
           tap(response => {
             localStorage.setItem(this.tokenKey, response.token);
           })
@@ -40,5 +40,3 @@ export class AuthService {
         localStorage.removeItem(this.tokenKey);
     }
 }
-
-// CONTINUE STEP 2

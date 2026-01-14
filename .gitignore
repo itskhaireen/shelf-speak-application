@@ -22,6 +22,7 @@ bookreview-ui/out-tsc/
 bookreview-ui/.angular/cache/
 bookreview-ui/coverage/
 bookreview-ui/.sass-cache/
+bookreview-ui/.angular/
 
 # IDEs
 .idea/

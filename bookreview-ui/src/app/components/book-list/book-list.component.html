@@ -1,3 +1,8 @@
+<div class="actions">
+    <a routerLink="/login" *ngIf="!isLoggedIn">Login to Add Book</a>
+    <a routerLink="/add-book" *ngIf="isLoggedIn">Add New Book</a>
+</div>
+
 <div class="book-list">
     <h2>Books!</h2>
 
