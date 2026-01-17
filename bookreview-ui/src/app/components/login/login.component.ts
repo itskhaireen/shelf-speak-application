@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService, LoginRequest } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,13 +20,16 @@ export class LoginComponent {
   };
   errorMessage: string | null = null;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   onSubmit() {
     this.errorMessage = null;
     this.authService.login(this.credentials).subscribe({
       next: () => {
-        window.location.reload();
+        this.router.navigate(['/add-book']);
       },
       error: (err) => {
         this.errorMessage = 'Login failed. Please check your credentials';

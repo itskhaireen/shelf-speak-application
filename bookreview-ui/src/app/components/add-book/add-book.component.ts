@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BookService, CreateBook } from '../../services/book.service';
@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './add-book.component.css'
 })
 
-export class AddBookComponent {
+export class AddBookComponent implements OnInit {
   book: CreateBook = {
     title: '',
     author: '',
@@ -26,9 +26,11 @@ export class AddBookComponent {
   constructor(
     private bookService: BookService,
     private authService: AuthService
-   ) 
+  ) {}
    
-  { this.isLoggedIn = this.authService.isAuthenticated(); }
+  ngOnInit () {
+    this.isLoggedIn = this.authService.isAuthenticated();
+  }
 
   onSubmit() {
     this.successMessage = null;
@@ -36,11 +38,9 @@ export class AddBookComponent {
 
     this.bookService.createBook(this.book).subscribe({
       next: (createdBook) => {
-        this.successMessage = 'Book "${createdBook.title}" added successfully!';
+        this.successMessage = `Book "${createdBook.title}" added successfully!`;
         this.book = {title: '', author: '', genre: '' };
 
-        // Emit event or call parent to refresh list
-        window.location.reload(); // Simple refresh for now
       },
       error: (err) => {
         this.errorMessage = 'Failed to add book. Please try again.';
@@ -49,5 +49,3 @@ export class AddBookComponent {
     });
   }
 }
-
-// Login is fine but no add book appear?

@@ -6,6 +6,17 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
   const token = authService.getToken();
 
+
+  // Skip Auth endpoints
+  if (req.url.includes('/auth')) {
+    return next(req);
+  }
+
+  // Skip public endpoints
+  if (req.method === 'GET' && req.url.includes('/books')) {
+    return next(req);
+  }
+
   if (token) {
     const cloned = req.clone({
       setHeaders: {

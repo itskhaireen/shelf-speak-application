@@ -20,9 +20,7 @@ export class BookListComponent implements OnInit {
   constructor(
     private bookService: BookService,
     private authService: AuthService
-  ) 
-  
-  { this.isLoggedIn = this.authService.isAuthenticated(); }
+  ) {}
 
   ngOnInit(): void {
     this.bookService.getAllBooks().subscribe({
@@ -36,5 +34,7 @@ export class BookListComponent implements OnInit {
         this.loading = false;
       }
     });
+
+    this.isLoggedIn = this.authService.isAuthenticated();
   }
 }

@@ -25,6 +25,7 @@
                 type="text"
                 id="author"
                 [(ngModel)]="book.author"
+                name="author"
                 required
                 maxlength="100"
             />
@@ -36,12 +37,13 @@
                 type="text"
                 id="genre"
                 [(ngModel)]="book.genre"
+                name="genre"
                 required
                 maxlength="50"
             />
         </div>
 
-        <button type="submit" [disabled]="!book.title || !book.author || !book.genre">
+        <button type="submit">
             Add Book
         </button>
     </form>
