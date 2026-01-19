@@ -1,0 +1,43 @@
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">📚 BookReview</div>
+
+    <div class="nav-actions">
+        <a routerLink="/book-list">Browse Books</a>
+        <a routerLink="/login" *ngIf="!isLoggedIn">Login</a>
+        <a routerLink="/add-book" *ngIf="isLoggedIn">Add Books!</a>
+        <button *ngIf="isLoggedIn" (click)="logout()">logout</button>
+    </div>
+
+</nav>
+
+<!-- HERO -->
+ <section class="hero">
+    <div class="hero-text">
+        <h1>The Most Comprehensive Book Review Platform</h1>
+        <p>Discover, review, and manage books with a modern fullstack application.</p>
+
+        <div class="call-to-action">
+            <a routerLink="/book-list" class="btn primary">Explore Books</a>
+            <a routerLink="/login" class="btn secondary" *ngIf="!isLoggedIn">Get Started</a>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img src="put-path-here" alt="Books" />
+    </div>
+ </section>
+
+<!-- FEATURED BOOKS -->
+<section class="featured">
+    <h2>Featured Books</h2>
+    <p>Hand-picked selections for readers</p>
+
+    <div class="book-grid">
+        <div class="book-card">
+            <img src="put-path-here" alt="Book Cover" />
+            <h4>Sample Book</h4>
+            <p>Author Name</p>
+        </div>
+    </div>
+</section>
