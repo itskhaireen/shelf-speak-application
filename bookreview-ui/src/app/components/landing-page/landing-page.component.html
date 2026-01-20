@@ -15,7 +15,7 @@
  <section class="hero">
     <div class="hero-text">
         <h1>The Most Comprehensive Book Review Platform</h1>
-        <p>Discover, review, and manage books with a modern fullstack application.</p>
+        <p>Discover, review, and manage books you love</p>
 
         <div class="call-to-action">
             <a routerLink="/book-list" class="btn primary">Explore Books</a>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="hero-image">
-        <img src="put-path-here" alt="Books" />
+        <img src="/images/different_winter_book_cover.avif" alt="Main Book" />
     </div>
  </section>
 
@@ -34,10 +34,13 @@
     <p>Hand-picked selections for readers</p>
 
     <div class="book-grid">
-        <div class="book-card">
-            <img src="put-path-here" alt="Book Cover" />
-            <h4>Sample Book</h4>
-            <p>Author Name</p>
+        <div class="book-card" *ngFor="let book of featuredBooks">
+            <img [src]="book.cover" alt="Book Display" />
+            <h4>{{ book.title }}</h4>
+            <p>{{ book.author }}</p>
+            <p>{{ book.genre }}</p>
         </div>
     </div>
 </section>
+
+<!-- FOOTER -->
