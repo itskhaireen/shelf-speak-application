@@ -39,7 +39,11 @@ export class AddBookComponent implements OnInit {
     this.bookService.createBook(this.book).subscribe({
       next: (createdBook) => {
         this.successMessage = `Book "${createdBook.title}" added successfully!`;
-        this.book = {title: '', author: '', genre: '' };
+        this.book = {
+          title: '', 
+          author: '', 
+          genre: '' 
+        };
 
       },
       error: (err) => {

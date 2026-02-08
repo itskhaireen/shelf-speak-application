@@ -16,14 +16,20 @@
                 <th>Title</th>
                 <th>Author</th>
                 <th>Genre</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let book of books">
                 <td>{{ book.id }}</td>
-                <td>{{ book.title }}</td>
+                <td> 
+                    <a [routerLink]="['/books', book.id]"> {{ book.title }}</a>
+                </td>
                 <td>{{ book.author }}</td>
                 <td>{{ book.genre }}</td>
+                <td>
+                    <a [routerLink]="['/books', book.id]">View Reviews</a>
+                </td>
             </tr>
         </tbody>
     </table>

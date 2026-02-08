@@ -31,4 +31,8 @@ export class BookService {
   createBook(book: CreateBook): Observable<Book> {
     return this.http.post<Book>(this.apiUrl, book);
   }
+
+  getBookById(id: number): Observable<Book> {
+    return this.http.get<Book>(`${this.apiUrl}/${id}`);
+  }
 }
